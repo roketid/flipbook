@@ -9,7 +9,9 @@ export default function Home({ isConnected }) {
       </Head>
       <div className="container mx-auto bg-indigo-500 text-white rounded-lg p-6">
         <form action="/pdf">
-          <h1 className="text-center font-bold  text-4xl py-10">Turn any PDF file into Flipbook</h1>
+          <h1 className="text-center font-bold  text-4xl pb-10">
+            <a className="underline block py-6" href="/">flipbook.roket.id</a>
+            Turn any PDF file into Flipbook</h1>
             <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
               <input name="source" className="text-base text-gray-400 flex-grow outline-none px-2 py-4 md:py-0" type="url" placeholder="Your PDF File URL" />
               <div className="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
@@ -17,7 +19,7 @@ export default function Home({ isConnected }) {
               </div>
             </div>
             <div className="p-4">
-              <span className="mr-2">Example :</span>
+              <span className="mr-2 inline-block">Example :</span>
               <a className="underline" href="/pdf?source=https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf">
               https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf
               </a>
