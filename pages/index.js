@@ -18,8 +18,8 @@ export default function Home({ isConnected }) {
             </div>
             <div className="p-4">
               <span className="mr-2">Example :</span>
-              <a className="underline" href="/pdf?source=https://www.free-ebooks.net/mystery-classics/Arsene-Lupin-versus-Herlock-Sholmes/pdf?dl%26preview">
-                https://www.free-ebooks.net/mystery-classics/Arsene-Lupin-versus-Herlock-Sholmes/pdf?dl&preview
+              <a className="underline" href="/pdf?source=https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf">
+              https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf
               </a>
             </div>
         </form>
