@@ -28,12 +28,14 @@ export async function getServerSideProps({ query }) {
   let pdf = '/books/intro.pdf'
 
   if (query.source) {
-    pdf = 'https://rapid-field-1713.mrofi.workers.dev/corsproxy/?apiurl=' + query.source
-  }
-
-  const db = client.db('flipbook_db')
-
+    const url = query.source
+    pdf = 'https://rapid-field-1713.mrofi.workers.dev/corsproxy/?apiurl=' + url
+    const db = await client.db(process.env.MONGODB_DATABASE)
+    const collection = await db.collection(process.env.MONGODB_COLLECTION)
   
+    collection.update({url}, {$inc: {count: 1}}, {upsert: true})
+  
+  }
 
   return {
     props: { pdf },
