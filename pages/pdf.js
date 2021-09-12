@@ -29,7 +29,7 @@ export async function getServerSideProps({ query }) {
 
   if (query.source) {
     const url = query.source
-    pdf = 'https://rapid-field-1713.mrofi.workers.dev/corsproxy/?apiurl=' + url
+    pdf = 'https://rapid-field-1713.mrofi.workers.dev/corsproxy/?apiurl=' + encodeURIComponent(url)
     const db = await client.db(process.env.MONGODB_DATABASE)
     const collection = await db.collection(process.env.MONGODB_COLLECTION)
   
