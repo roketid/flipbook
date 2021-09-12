@@ -8,7 +8,7 @@ export default function Home({ isConnected }) {
         <meta name="description" value="Flipbook can turn your pdf file into beautiful flipbook. Powered by roket.id" />
       </Head>
       <div className="container mx-auto bg-indigo-500 text-white rounded-lg p-6">
-        <form action="/pdf">
+        <form action="/pdf" target="_blank">
           <h1 className="text-center font-bold  text-4xl pb-10">
             <a className="underline block py-6" href="/">flipbook.roket.id</a>
             Turn any PDF file into Flipbook</h1>
@@ -20,7 +20,7 @@ export default function Home({ isConnected }) {
             </div>
             <div className="p-4">
               <span className="mr-2 inline-block">Example :</span>
-              <a className="underline" href="/pdf?source=https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf">
+              <a className="underline" target="_blank" href="/pdf?source=https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf">
               https://dearflip.com/wp-content/uploads/2019/07/dearpdf-manual.pdf
               </a>
             </div>
