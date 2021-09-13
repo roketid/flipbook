@@ -15,7 +15,11 @@ export default function Home({ pdf }) {
   )
 }
 
-export async function getServerSideProps({ query }) {
+const getDriveDownloaderLink = url => {
+  return url.replace(/\/file\/d\/(.+)\/(.+)/, "/uc?export=download&id=$1")
+}
+
+export async function getServerSideProps({ query, res }) {
   const client = await clientPromise
 
   // client.db() will be the default database passed in the MONGODB_URI
@@ -25,19 +29,27 @@ export async function getServerSideProps({ query }) {
   // db.find({}) or any of the MongoDB Node Driver commands
 
   // const isConnected = await client.isConnected()
-  let pdf = '/books/intro.pdf'
+  let pdf = null
 
   if (query.source) {
-    const url = query.source
+    let url = query.source
+    if (url.indexOf('drive.google.com') !== -1) {
+      url = getDriveDownloaderLink(url)
+    }
     pdf = 'https://rapid-field-1713.mrofi.workers.dev/corsproxy/?apiurl=' + encodeURIComponent(url)
     const db = await client.db(process.env.MONGODB_DATABASE)
     const collection = await db.collection(process.env.MONGODB_COLLECTION)
   
     collection.update({url}, {$inc: {count: 1}}, {upsert: true})
   
+    return {
+      props: { pdf },
+    }
   }
 
-  return {
-    props: { pdf },
-  }
+
+  res.writeHead(307, {Location: '/'})
+  res.end()
+
+  return {}
 }
