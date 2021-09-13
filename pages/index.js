@@ -13,7 +13,7 @@ export default function Home({ isConnected }) {
             <a className="underline block py-6" href="/">flipbook.roket.id</a>
             Turn any PDF file into Flipbook</h1>
             <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
-              <input name="source" className="text-base text-gray-400 flex-grow outline-none px-2 py-4 md:py-0" type="url" placeholder="Your PDF File URL" />
+              <input name="source" className="text-base text-gray-400 flex-grow outline-none px-2 py-4 md:py-0" type="url" placeholder="Your PDF URL / Google Drive URL" />
               <div className="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
                 <button className="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Go!</button>
               </div>
