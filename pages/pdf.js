@@ -31,8 +31,10 @@ export async function getServerSideProps({ query, res }) {
   // const isConnected = await client.isConnected()
   let pdf = null
 
-  if (query.source) {
-    let url = query.source
+  let url = query.source
+
+  if (url) {
+    url = url.trim()
     if (url.indexOf('drive.google.com') !== -1) {
       url = getDriveDownloaderLink(url)
     }
